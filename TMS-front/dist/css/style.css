@@ -1,0 +1,341 @@
+/**********************************************
+*** GENERAL
+**********************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+body {
+    color: #555;
+    font-family: Open Sans;
+    font-size: 16px;
+    position: relative;
+    height: 100vh;
+    font-weight: 400;
+}
+
+.right { float: right; }
+.red { color: #FF5049 !important; }
+.red-focus:focus { border: 1px solid #FF5049 !important; }
+
+/**********************************************
+*** TOP PART
+**********************************************/
+
+.top {
+    height: 65vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../img/transactions.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  
+}
+
+.budget {
+    position: absolute;
+    width: 580px;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.app__title {
+    font-family:Segoe Script;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.budget__title {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.budget__value {
+    font-weight: 300;
+    font-size: 46px;
+    text-align: center;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+.budget__income,
+.budget__expenses {
+    padding: 12px;
+    text-transform: uppercase;
+}
+
+.budget__income {
+    margin-bottom: 10px;
+    background-color: rgb(207, 231, 71);
+}
+
+.budget__expenses {
+    background-color: rgb(86, 204, 240);
+}
+
+.budget__income--text,
+.budget__expenses--text {
+    float: left;
+    font-size: 13px;
+    color: #444;
+    margin-top: 2px;
+    font-weight: 600;
+}
+
+.budget__income--value,
+.budget__expenses--value {
+    letter-spacing: 1px;
+    float: left;
+    padding-right: 20px;
+    font-weight: 600;
+   
+}
+
+
+
+/**********************************************
+*** BOTTOM PART
+**********************************************/
+
+/***** FORM *****/
+.add {
+    padding: 14px;
+    border-bottom: 1px solid #e7e7e7;
+    background-color: #f7f7f7;
+}
+
+.add__container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.add__type {
+    width: 55px;
+    border: 1px solid #e7e7e7;
+    height: 44px;
+    font-size: 18px;
+    color: inherit;
+    background-color: #fff;
+    margin-right: 10px;
+    font-weight: 300;
+    transition: border 0.3s;
+}
+.add__category {
+    width: 150px;
+    border: 1px solid #e7e7e7;
+    background-color: #fff;
+    color: inherit;
+    font-family: inherit;
+    font-size: 12px;
+    padding: 12px 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+    transition: border 0.3s;
+}
+
+.add__description,
+.add__value , .add__date {
+    border: 1px solid #e7e7e7;
+    background-color: #fff;
+    color: inherit;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 12px 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+    transition: border 0.3s;
+}
+
+
+.add__description { width: 400px;}
+.add__value { width: 130px;}
+
+.add__btn {
+    font-size: 35px;
+    background: none;
+    border: none;
+    color: rgb(3, 31, 30);
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.1;
+    margin-left: 10px;
+}
+
+.add__btn:active { transform: translateY(2px); }
+
+.add__type:focus,
+.add__description:focus,
+.add__value:focus {
+    outline: none;
+    border: 1px solid #28B9B5;
+}
+
+.add__btn:focus { outline: none; }
+
+/**********************************************
+*** filter PART
+**********************************************/
+.filter {
+   
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom:20px;
+}
+.filter__title {
+   
+    font-family:Ink Free;
+    background-size :100% 95%;;
+    font-size:30px;
+    font-weight: 1500;
+    margin-bottom: -20px;
+}
+.filter__all{
+    border: 3px groove rgb(230, 246, 236);
+    border-radius: 3px;
+    margin: 60px;
+    margin-right: 40px;
+    padding: 10px;
+    text-align: center;
+    font-size: 13px;
+    color:rgb(61, 61, 58) ;
+    background-color: rgb(211, 224, 220);
+    font-family: Comic Sans MS	 ;
+}
+.filter__category , .filter__to , .filter__from {
+    border:2px solid rgb(137, 138, 132);
+    background-color: rgb(239, 245, 244);
+    color: inherit;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 12px 15px;
+    margin-right: 10px;
+    border-radius: 3px;
+    transition: border 0.3s;
+    width : 170px;
+    margin-top: 5px;
+}
+.filter__to , .filter__from{
+    width : 170px; 
+}
+
+
+/***** LIST of transactions *****/
+
+.container {
+    width: 1000px;
+    margin: 60px auto;
+    
+}
+
+.income {
+    
+    width: 1000px;
+  
+}
+
+.expenses {
+    margin-top:100px;
+    
+    width: 1000px;
+    
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.income__title { color: rgb(166, 194, 10);font-weight:800; }
+.expenses__title { color:  rgb(86, 204, 240);font-weight:800;}
+.total__inc , .total__exp {
+    float: right;
+    margin-right: -100;
+    width: 100px;
+    height: 35px;
+    color: rgb(9, 15, 17);
+    font-weight: 800;
+    border: 2px;
+    border-radius: 3px;
+    background-color: rgb(245, 245, 245);
+    text-align: center;
+    padding: 5px;
+}
+.item {
+    padding: 13px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.item:first-child { border-top: 1px solid #e7e7e7; }
+.item:nth-child(even) { background-color: #f7f7f7; }
+
+.item__description  {
+    text-indent: 20%;
+    margin-left: 100px;
+   margin-top: -22px;
+    
+}
+
+.item__date {
+   margin-top: -22px;
+   text-indent: 52%;
+   margin-left: 350px;
+   
+}
+
+.item__category {
+    text-indent: 2%;
+    margin-left: 10px;
+  
+}
+
+.item__value {
+    margin-top: -22px;
+    float: left;
+    transition: transform 0.3s;
+}
+.category_icon {
+    float: left;
+    height: 30px;
+    border-radius:360px; 
+}
+
+.income .item__value
+ {
+    color:  rgb(166, 194, 10);
+    margin-top: -22px;
+    padding: 3px;
+   
+}
+
+.expenses .item__value {
+    color: rgb(86, 204, 240);
+    margin-top: -22px;
+    padding: 3px;
+}
+
+
+.item:hover .item__value { transform: translateX(-10px); }
+
+
+.end
+{overflow:hidden;text-align:center; color:#4F5458;padding-top:150px;padding-bottom: 40px; margin-bottom: 0}
+.end span 
+{margin-top: 20px;}

@@ -1,0 +1,42 @@
+
+2020-04-13 03:01:09 Apache Commons Daemon procrun stderr initialized.
+13-Apr-2020 03:01:12.730 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.34
+13-Apr-2020 03:01:12.747 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 3 2020 12:02:52 UTC
+13-Apr-2020 03:01:12.747 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.34.0
+13-Apr-2020 03:01:12.748 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+13-Apr-2020 03:01:12.752 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+13-Apr-2020 03:01:12.753 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          x86
+13-Apr-2020 03:01:12.753 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jre1.8.0_241
+13-Apr-2020 03:01:12.753 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_241-b07
+13-Apr-2020 03:01:12.753 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+13-Apr-2020 03:01:12.754 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0
+13-Apr-2020 03:01:12.754 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0
+13-Apr-2020 03:01:12.796 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0
+13-Apr-2020 03:01:12.796 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0
+13-Apr-2020 03:01:12.797 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\temp
+13-Apr-2020 03:01:12.797 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+13-Apr-2020 03:01:12.797 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\conf\logging.properties
+13-Apr-2020 03:01:12.797 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: exit
+13-Apr-2020 03:01:12.798 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: abort
+13-Apr-2020 03:01:12.798 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+13-Apr-2020 03:01:12.798 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx256m
+13-Apr-2020 03:01:12.799 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+13-Apr-2020 03:01:12.799 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+13-Apr-2020 03:01:12.799 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+13-Apr-2020 03:01:12.810 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+13-Apr-2020 03:01:14.197 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+13-Apr-2020 03:01:15.707 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [4,286] milliseconds
+13-Apr-2020 03:01:15.831 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+13-Apr-2020 03:01:15.831 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.34]
+13-Apr-2020 03:01:15.859 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\docs]
+13-Apr-2020 03:01:17.332 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\docs] has finished in [1,473] ms
+13-Apr-2020 03:01:17.333 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\examples]
+13-Apr-2020 03:01:20.072 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\examples] has finished in [2,739] ms
+13-Apr-2020 03:01:20.073 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\host-manager]
+13-Apr-2020 03:01:20.226 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\host-manager] has finished in [153] ms
+13-Apr-2020 03:01:20.230 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\manager]
+13-Apr-2020 03:01:20.541 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\manager] has finished in [313] ms
+13-Apr-2020 03:01:20.541 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\ROOT]
+13-Apr-2020 03:01:20.775 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Program Files (x86)\Apache Software Foundation\Tomcat 9.0\webapps\ROOT] has finished in [234] ms
+13-Apr-2020 03:01:20.784 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+13-Apr-2020 03:01:20.840 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [5,132] milliseconds
