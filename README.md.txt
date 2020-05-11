@@ -30,7 +30,7 @@ tms2
 admin
 admin
 
-7. Add tomcat 9.0 to servers ; in browse you can find it in tools folder.
+7. Add tomcat 9.0 to servers and it should work on port 8080 ; in browse you can find it in tools folder.
 8. run project as on server.
 9. check that there is no erros in console.
 

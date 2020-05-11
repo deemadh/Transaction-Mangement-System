@@ -6,7 +6,7 @@ import * as filterView from './views/FilterView';
 import * as transactionListView from './views/TransactionListView';
 
 
-/************ get Balance + Totals(income& expense) ************/
+//get Balance + Totals(income& expense)
 let totalExp, totalInc, balance;
 const getBalance = async () => {
     balance = await api.getBalance(null, null, null, null);
@@ -20,14 +20,14 @@ const getBalance = async () => {
 
 }
 
-/***** get categories based on type ******* */
+// get categories based on type 
 let typeCategories;
 const getcategories = async (type) => {
     typeCategories = await api.getCategories(type);
     typeCategories = typeCategories.data;
 }
 
-/*****  get All categories ******* */
+//  get All categories
 let allCategories;
 const getAllCategories = async () => {
     allCategories = await api.getCategories(0);
@@ -79,7 +79,7 @@ const getCategory = async (id) => {
     return await api.getCategory(id);
 }
 
-/************ filtered totals ************/
+//get filtered totals 
 let filteredIncTotal, filteredExpTotal;
 const getFilteredTotals = async (categoryId, to, from) => {
 
@@ -94,7 +94,7 @@ const getFilteredTotals = async (categoryId, to, from) => {
 /********************************************* */
 
 
-const changeCategorytype = async () => {
+const showTypeCategories = async () => {
     //1.clear category  and select placeholder 'defualt value' 
     addView.clearCategoryList();
 
@@ -255,19 +255,19 @@ window.addEventListener('load', async () => {
    
     await pageFirstView();
 
-    /******* when selector type changed ****/
-    elements.addType.addEventListener('change', changeCategorytype);
+    // selector type changed
+    elements.addType.addEventListener('change', showTypeCategories);
 
-    /******* fliter change ****/
+    // fliter space change
     elements.filterCategory.addEventListener('change', transactionsFiltering);
     elements.filterFrom.addEventListener('blur', transactionsFiltering);// blur event is fired when the input field looses focus
     elements.filterTo.addEventListener('blur', transactionsFiltering);
 
 
-    /**** show all button event listener ***/
+    //show all button event listener 
     elements.showAll.addEventListener('click', showAllTransactions);
     
-    /*** add transactions ****/
+    //add transaction button event listener
     elements.addBtn.addEventListener('click', addTransaction );
 
 });
