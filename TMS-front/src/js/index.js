@@ -91,7 +91,7 @@ const getFilteredTotals = async (categoryId, to, from) => {
 }
 
 
-/********************************************* */
+/**********************************************/
 
 
 const showTypeCategories = async () => {
@@ -112,40 +112,40 @@ const showTypeCategories = async () => {
 }
 
 const addTransaction = async () => {
-     //1. get input data
-     const transaction = addView.readAddSpace();
+    //1. get input data
+    const transaction = addView.readAddSpace();
 
-     //2. add transcation
-     if (transaction.type == 'inc')
-         await api.addIncome(15, transaction.amount, transaction.category, transaction.date, transaction.comment);
-     else if (transaction.type == 'exp')
-         await api.addExpense(16, transaction.amount, transaction.category, transaction.date, transaction.comment);
- 
- 
-     //3. clear list of transactions
-     transactionListView.clearTransactionList(1);
-     transactionListView.clearTransactionList(2);
- 
-     //4. get all transactions 
-     await getTransactions();
- 
-     //5. show all transactions 
-     transactionListView.renderIncomeList(incomes);
-     transactionListView.renderExpenseList(expenses);
- 
-     //6. clear input data
-     addView.clearAddSpace();
- 
-     /**update balances**/
-     //1. get balance for  (total / inc / exp )
-     await getBalance();
- 
-     //2. show balance for  (total / inc / exp ) on UI
-     topView.renderBalances(balance, totalInc, totalExp);
- 
-     //3. update totals in transactions list 
-     elements.filteredIncTotal.innerHTML = totalInc;
-     elements.filteredExpTotal.innerHTML = Math.abs(totalExp);
+    //2. add transcation
+    if (transaction.type == 'inc')
+        await api.addIncome(15, transaction.amount, transaction.category, transaction.date, transaction.comment);
+    else if (transaction.type == 'exp')
+        await api.addExpense(16, transaction.amount, transaction.category, transaction.date, transaction.comment);
+
+
+    //3. clear list of transactions
+    transactionListView.clearTransactionList(1);
+    transactionListView.clearTransactionList(2);
+
+    //4. get all transactions 
+    await getTransactions();
+
+    //5. show all transactions 
+    transactionListView.renderIncomeList(incomes);
+    transactionListView.renderExpenseList(expenses);
+
+    //6. clear input data
+    addView.clearAddSpace();
+
+    /**update balances**/
+    //1. get balance for  (total / inc / exp )
+    await getBalance();
+
+    //2. show balance for  (total / inc / exp ) on UI
+    topView.renderBalances(balance, totalInc, totalExp);
+
+    //3. render totals in transactions list 
+    elements.filteredIncTotal.innerHTML = totalInc;
+    elements.filteredExpTotal.innerHTML = Math.abs(totalExp);
 }
 
 const transactionsFiltering = async () => {
@@ -154,9 +154,6 @@ const transactionsFiltering = async () => {
     var filter = filterView.readFilterSpace();
 
     if (filter.type == null) { // فلترة لل الجهتين 
-        //clear list of all transactions
-        transactionListView.clearTransactionList(1);
-        transactionListView.clearTransactionList(2);
 
         // get balance + totals based on filtering
         await getFilteredTotals(filter.categoryId, filter.to, filter.from);
@@ -164,31 +161,39 @@ const transactionsFiltering = async () => {
         //render filtered totals
         elements.filteredIncTotal.innerHTML = filteredIncTotal;
         elements.filteredExpTotal.innerHTML = Math.abs(filteredIncTotal);
+
+        //clear list of all transactions
+        transactionListView.clearTransactionList(1);
+        transactionListView.clearTransactionList(2);
+
+        // get transactions based on  th filter
+        await getFilteredTransactions(filter);
+
+        // render filtered transactions
+        transactionListView.renderIncomeList(filteredIncomes);
+        transactionListView.renderExpenseList(filteredExpenses);
     }
+
     else { //  فلترة للنوع اللي تابعة اله الكاتيجوري المختارة
 
-        // clear list of transactions based on filter type
+        // 1.clear list of transactions based on filter type
         transactionListView.clearTransactionList(filter.type);
-
-        // get list of transactions based on filter type
+        // 2.get list of transactions based on filter type
+        await getFilteredTransactions(filter);
+        // 3.get total of filter type
+        await getFilteredTotals(filter.categoryId, filter.to, filter.from);
+        // 4. render transactions and total
         if (filter.type == 1) {
-            await getFilteredTotals(filter.categoryId, filter.to, filter.from);
+            transactionListView.renderIncomeList(filteredIncomes);
             elements.filteredIncTotal.innerHTML = filteredIncTotal;
         }
         else if (filter.type == 2) {
-            await getFilteredTotals(filter.categoryId, filter.to, filter.from);
+            transactionListView.renderExpenseList(filteredExpenses);
             elements.filteredExpTotal.innerHTML = Math.abs(filteredExpTotal);
         }
 
 
     }
-
-    // get transactions based on  th filter
-    await getFilteredTransactions(filter);
-
-    // render filtered transactions
-    transactionListView.renderIncomeList(filteredIncomes);
-    transactionListView.renderExpenseList(filteredExpenses);
 
 
 }
@@ -215,50 +220,54 @@ const showAllTransactions = async () => {
     elements.filteredExpTotal.innerHTML = Math.abs(totalExp);
 }
 
-const pageFirstView = async() => {
-      //1.get balance for  (totalBalance / total income /total expense)
-      await getBalance();
+const pageFirstView = async () => {
+    //1.get balance for  (totalBalance / total income /total expense)
+    await getBalance();
 
-      //2. show top balances  + filtered totals on UI
-      topView.renderBalances(balance, totalInc, totalExp);
-      elements.filteredIncTotal.innerHTML = totalInc;
-      elements.filteredExpTotal.innerHTML = Math.abs(totalExp);
-  
-      //3.get category list for add space  
-      var type = elements.addType.options[elements.addType.selectedIndex].value;
-      if (type == 'inc')
-          await getcategories(1);
-      else if (type == 'exp') 
-      await getcategories(2);
-  
-      //4. show category list for add space  
-      addView.renderCategories(typeCategories);
-  
-      //get all categories for filtering
-      await getAllCategories();
-  
-      //  render category list in filter space 
-      filterView.renderCategories(allCategories);
-  
-      // firstly get all transactions 
-      await getTransactions();
-  
-      //  show all transactions 
-      transactionListView.renderIncomeList(incomes);
-      transactionListView.renderExpenseList(expenses);
+    //2. show top balances  + filtered totals on UI
+    topView.renderBalances(balance, totalInc, totalExp);
+    elements.filteredIncTotal.innerHTML = totalInc;
+    elements.filteredExpTotal.innerHTML = Math.abs(totalExp);
+
+    //3.get category list for add space  
+    var type = elements.addType.options[elements.addType.selectedIndex].value;
+    if (type == 'inc')
+        await getcategories(1);
+    else if (type == 'exp')
+        await getcategories(2);
+
+    //4. show category list for add space  
+    addView.renderCategories(typeCategories);
+
+    //get all categories for filtering
+    await getAllCategories();
+
+    //  render category list in filter space 
+    filterView.renderCategories(allCategories);
+
+    // firstly get all transactions 
+    await getTransactions();
+
+    //  show all transactions 
+    transactionListView.renderIncomeList(incomes);
+    transactionListView.renderExpenseList(expenses);
 }
 /******************************************** */
 
 
 
 window.addEventListener('load', async () => {
-   
+
     await pageFirstView();
 
     // selector type changed
     elements.addType.addEventListener('change', showTypeCategories);
 
-    // fliter space change
+
+    //add transaction button event listener
+    elements.addBtn.addEventListener('click', addTransaction);
+
+    // fliter boxes change
     elements.filterCategory.addEventListener('change', transactionsFiltering);
     elements.filterFrom.addEventListener('blur', transactionsFiltering);// blur event is fired when the input field looses focus
     elements.filterTo.addEventListener('blur', transactionsFiltering);
@@ -266,8 +275,6 @@ window.addEventListener('load', async () => {
 
     //show all button event listener 
     elements.showAll.addEventListener('click', showAllTransactions);
-    
-    //add transaction button event listener
-    elements.addBtn.addEventListener('click', addTransaction );
+
 
 });

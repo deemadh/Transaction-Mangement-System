@@ -1,6 +1,23 @@
 import axios from 'axios';
 
 
+export async function getTransactions(type, categoryId, to, from) {
+
+    return await axios.get('http://localhost:8080/spring-rest-demo/tms/transactions', {
+        params: {
+            "type": type,
+            "categoryId": categoryId,
+            "to": to,
+            "from": from
+        }
+    })
+        .catch(error => {
+            alert(error.response.data.message)
+        });
+
+};
+
+
 export async function getBalance(type, categoryId, to, from) {
 
     return await axios.get('http://localhost:8080/spring-rest-demo/tms/balance', {
@@ -20,21 +37,6 @@ export async function getBalance(type, categoryId, to, from) {
 };
 
 
-export async function getTransactions(type, categoryId, to, from) {
-
-    return await axios.get('http://localhost:8080/spring-rest-demo/tms/transactions', {
-        params: {
-            "type": type,
-            "categoryId": categoryId,
-            "to": to,
-            "from": from
-        }
-    })
-        .catch(error => {
-            alert(error.response.data.message)
-        });
-
-};
 
 
 export async function getCategory(id) {
@@ -121,7 +123,7 @@ export async function addExpense(type, amount, icategory, date, comment) {
 
 export async function addIncome(type, amount, icategory, date, comment) {
 
-    const balance = await axios.post('http://localhost:8080/spring-rest-demo/tms/income', null, {
+    return await axios.post('http://localhost:8080/spring-rest-demo/tms/income', null, {
         params: {
             type,
             amount,
